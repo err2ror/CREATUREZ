@@ -1,0 +1,89 @@
+TOP 5 POWER:
+
+1ST PLACE:
+Blmb-343489442's stats
+Color: transparent
+Ability: vibrates
+Weakness: english
+Power: 3255275684
+ID: 103622
+
+2ND PLACE:
+Wlib-280262184's stats
+Color: red
+Ability: vibrates
+Weakness: gravity
+Power: 2652857940
+ID: 96120
+
+3RD PLACE:
+Gluo-266861406's stats
+Color: neon yellow
+Ability: vibrates
+Weakness: gravity
+Power: 2529177634
+ID: 110536
+
+4TH PLACE:
+Wlmb-258472268's stats
+Color: blue
+Ability: vibrates
+Weakness: Sundays
+Power: 2450449967
+ID: 106958
+
+5TH PLACE:
+Glub-256652131's stats
+Color: purple
+Ability: floats sometimes
+Weakness: Sundays
+Power: 2433220167
+ID: 112389
+
+TOP 5 LOWEST POWER:
+
+1ST PLACE:
+Blob-973's stats
+Color: transparent
+Ability: vibrates
+Weakness: gravity
+Power: 1666
+ID: 2
+
+2ND PLACE:
+Wumpus-644's stats
+Color: purple
+Ability: knows your secrets
+Weakness: social interaction
+Power: 3680
+ID: 3
+
+3RD PLACE:
+Gorf-245's stats
+Color: red
+Ability: knows your secrets
+Weakness: loud noises
+Power: 5696
+ID: 1
+
+4TH PLACE:
+Borb-1218's stats
+Color: red
+Ability: vibrates
+Weakness: loud noises
+Power: 7362
+ID: 10
+
+5TH PLACE:
+Glip-585's stats
+Color: green
+Ability: vibrates
+Weakness: water
+Power: 7846
+ID: 0
+
+SPECIAL/RANDOM:
+Monsterdb.py stats:
+Total monsters: 116013
+Average power: 256001412.74785584
+Total power across all monsters: 29699491897117
