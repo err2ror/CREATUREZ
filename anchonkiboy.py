@@ -1,5 +1,5 @@
-# CHONKER v2.0
-# my goal is to progressively turn this into an api, while keeping an up-to-date tui (clui)
+# CHONKER v3.0
+# TOD0: idk
 import random
 import os
 import shutil
@@ -27,7 +27,7 @@ def save(file):
     monstardb.write(azertyuiop)
     monstardb.flush()
 def nice(x, show_id=None):
-    print(x["name"] + "'s stats")
+    print(x["name"])
     print("Color:", x["color"])
     print("Ability:", x["ability"])
     print("Weakness:", x["weakness"])
@@ -294,19 +294,172 @@ def clean_monsterdb():
 def maxpower(exclude=None, reverse=False):
     if exclude is None:
         exclude = []
+    exclude=set(exclude)
+    # Build a filtered list of (index, monster)
+    pool = [(i, m) for i, m in enumerate(db) if i not in exclude]
 
+    # Choose max or min based on reverse flag
+    if not reverse:
+        idx, mon = max(pool, key=lambda x: x[1]["power_level"])
+    else:
+        idx, mon = min(pool, key=lambda x: x[1]["power_level"])
+
+    return idx, mon
+#here lies around 1000 old bugged/slow versions of functions.
+'''def transform(x,y):
+    #DUMB CODE 2
+    xmir=x
+    for i in y:
+        if i < x:
+            xmir-=1
+            #15,[1,2,3,4]
+            #num inf 15: 4
+            #11
+            #expct:
+            #remove [1,2,3,4] from [1,2,3,4,5,6,7,8,9,10,11]
+            #
+            #this should work... should....
+    return xmir'''
+'''def transform(x, y):
+    xmir = x
+    for i in sorted(y):
+        if i < x:
+            xmir -= 1
+    return xmir
+'''
+'''def transform(x, y):
+    return x - sum(1 for i in y if i < x)
+'''
+'''def faxtpower(exclude=None, reverse=False):
+    if exclude is None:
+        exclude = []
+    pool=db[:] #oh god
+    # DUMB CODE ALERT
+    # ill tell you when it doesnt apply anymore
+    for i in exclude:
+        del pool[transform(i,exclude)] #just...
+    # ok now it doesnt apply
+
+    # Build a filtered list of (index, monster)
+    # pool = [(i, m) for i, m in enumerate(db) if i not in exclude]
+
+    # Choose max or min based on reverse flag
+    if not reverse:
+        mon = max(pool, key=lambda m: m["power_level"])
+    else:
+        mon = min(pool, key=lambda m: m["power_level"])
+    idx = db.index(mon)
+    return idx, mon
+'''
+#TODO: delete this this is sooo annoying
+#i mean the comments above
+'''def faxtpower(exclude=None, reverse=False):
+    if exclude is None:
+        exclude = []
+    #GGEZ MAXPOWER
+    exclude=sorted(list(set(exclude)),reverse=True)
+    #lst = [v for i, v in enumerate(lst) if i not in remove] #o(len(list))
+    pool = db[:]
+    for i in exclude:
+        #o(len(deletedels) log len(list))
+        del pool[i]
+
+    # Choose max or min based on reverse flag
+    if not reverse:
+        mon = max(pool, key=lambda m: m["power_level"])
+    else:
+        mon = min(pool, key=lambda m: m["power_level"])
+    idx = db.index(mon)
+    #print(idx, mon)
+    return idx, mon
+'''
+'''def faxtpower(exclude=None, reverse=False):
+    if exclude is None:
+        exclude = []
+    exclude = set(exclude)
+
+    # pool is a copy of db
+    pool = db[:]
+
+    # idmap tracks original indices
+    idmap = list(range(len(db)))
+
+    # delete excluded IDs by mapping them to positions
+    for orig_id in sorted(exclude, reverse=True):
+        pos = idmap.index(orig_id)   # find where that ID currently lives
+        del idmap[pos] 
+        del pool[pos]
+    #unoptimised
+
+    # choose monster
+    if not reverse:
+        pos = max(range(len(pool)), key=lambda i: pool[i]["power_level"])
+    else:
+        pos = min(range(len(pool)), key=lambda i: pool[i]["power_level"])
+
+    orig_id = idmap[pos]
+    return orig_id, pool[pos]'''
+def faxtpower(exclude=None, reverse=False):
+    if exclude is None:
+        exclude = []
+    exclude = set(exclude)
+
+    # pool is a copy of db
+    pool = db[:]
+
+    # idmap[pos] = original ID
+    idmap = list(range(len(db)))
+
+    # pos_of[orig_id] = current position in pool/idmap
+    pos_of = list(range(len(db)))
+
+    # delete excluded IDs using swap-delete (O(1))
+    for orig_id in exclude:
+        pos = pos_of[orig_id]
+        last = len(pool) - 1
+
+        if pos != last:
+            # swap pool
+            pool[pos], pool[last] = pool[last], pool[pos]
+
+            # swap idmap
+            idmap[pos], idmap[last] = idmap[last], idmap[pos]
+
+            # update reverse lookup
+            pos_of[idmap[pos]] = pos
+            pos_of[idmap[last]] = last
+
+        # delete last
+        del pool[last]
+        del idmap[last]
+
+    # choose strongest or weakest
+    if not reverse:
+        pos = max(range(len(pool)), key=lambda i: pool[i]["power_level"])
+    else:
+        pos = min(range(len(pool)), key=lambda i: pool[i]["power_level"])
+
+    orig_id = idmap[pos]
+    return orig_id, pool[pos]
+
+'''def maxpower(exclude=None, reverse=False):
+    if exclude is None:
+        exclude = []
+    print(exclude)
+    # exclude = set(exclude)
     # build a filtered pool without mutating the original list
-    pool = [m for i, m in enumerate(db) if i not in exclude]
-
+    e = [m for i, m in enumerate(db) if i not in exclude]
     # choose max or min depending on reverse
     if not reverse:
-        j = max(range(len(pool)), key=lambda i: pool[i]["power_level"])
+        #j = max(range(len(pool)), key=lambda i: pool[i]["power_level"])
+        j = max(e, key=e.get)
     else:
-        j = min(range(len(pool)), key=lambda i: pool[i]["power_level"])
+        #j = min(range(len(pool)), key=lambda i: pool[i]["power_level"])
+        j= max(e, key=e.get)
 
     return j, pool[j]
-
-def top(x, reverse=False):
+'''
+def top_legacy(x, reverse=False):
     used = []
     for i in range(1, x+1):
         if i == 1:
@@ -319,9 +472,66 @@ def top(x, reverse=False):
             place = f"{i}TH"
         print(f"\n{place} PLACE:")
         mid = maxpower(exclude=used, reverse=reverse)
+        #print(mid)
         nice(db[int(mid[0])], show_id=mid[0])
         used.append(int(mid[0]))
+'''def top_broken(x,reverse=False):
+    used = []
+    for i in range(1, x+1):
+        if i == 1:
+            place = "1ST"
+        elif i == 2:
+            place = "2ND"
+        elif i == 3:
+            place = "3RD"
+        else:
+            place = f"{i}TH"
+        print(f"\n{place} PLACE:")
+        mid = faxtpower(exclude=used, reverse=reverse)
+        #print(mid)
+        used.append(int(mid[0]))
+        nice(db[int(mid[0])], show_id=mid[0])
+        used.append(int(mid[0]))'''
+def top(x,reverse=False):
+    used = []
+    for i in range(1, x+1):
+        if i == 1:
+            place = "1ST"
+        elif i == 2:
+            place = "2ND"
+        elif i == 3:
+            place = "3RD"
+        else:
+            place = f"{i}TH"
+        print(f"\n{place} PLACE:")
+        mid = faxtpower(exclude=sorted(set(used), reverse=True), reverse=reverse)
+        used.append(mid[0])
+        #print(mid)
 
+        #log(f"{place} place done.")
+        #log(f"NERD: {mid}")
+        #log(f"NERD: {used}")
+        nice(db[mid[0]], show_id=mid[0])
+def top_maxpow(x,reverse=False):
+    used = []
+    for i in range(1, x+1):
+        if i == 1:
+            place = "1ST"
+        elif i == 2:
+            place = "2ND"
+        elif i == 3:
+            place = "3RD"
+        else:
+            place = f"{i}TH"
+        print(f"\n{place} PLACE:")
+        mid = maxpower(exclude=sorted(set(used), reverse=True), reverse=reverse)
+        used.append(mid[0])
+        #print(mid)
+
+        #log(f"{place} place done.")
+        #log(f"NERD: {mid}")
+        #log(f"NERD: {used}")
+        nice(db[mid[0]], show_id=mid[0])
 def dbstats(numtop=5):
     print("TOP 5 POWER:")
     top(numtop)
@@ -476,7 +686,7 @@ def breeder():
 
 def main():
     while True:
-        print("=== CHONKER V2 ===")
+        print("=== CHONKER V3 ===")
         if len(db) > 10000:
             print("just like ur db")
         print("1. Battle")
@@ -485,7 +695,8 @@ def main():
         print("4. Clean monsterdb")
         print("5. Database stats")
         print("6. Breeder")
-        print("7. Exit")
+        print("7. Stat viewer")
+        print("8. Exit")
         try:
             choice = input("> ").strip()
         except KeyboardInterrupt:
@@ -507,6 +718,14 @@ def main():
             elif choice == "6":
                 breeder()
             elif choice == "7":
+                x=input("View stats of (ID) [X: exit]: ")
+                #TOD0: invalid input catching
+                while True:
+                    if x.lower()=="x":
+                        break
+                    nice(db[int(x)])
+                    x=input("View stats of (ID) [X: exit]: ")
+            elif choice == "8":
                 break
             else:
                 print("Invalid choice.")

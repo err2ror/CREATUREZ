@@ -1,0 +1,171 @@
+/home/orso/creature_gh/anchonkiboy.boi.mojo:7:1: error: classes are not supported yet
+class ManuallyInitiatedCrash(Exception):
+^
+/home/orso/creature_gh/anchonkiboy.boi.mojo:16:1: error: 'try' must be contained in a function but is contained in a file scope.
+try:
+^
+/home/orso/creature_gh/anchonkiboy.boi.mojo:18:5: error: expressions are not allowed at global scope; move this into a function body
+    db = al_frm
+    ^
+/home/orso/creature_gh/anchonkiboy.boi.mojo:19:5: error: expressions are not allowed at global scope; move this into a function body
+    needsinit=False
+    ^
+/home/orso/creature_gh/anchonkiboy.boi.mojo:21:5: error: expressions are not allowed at global scope; move this into a function body
+    print("HEYO BRO YE MIGHT WANNA COPY A BACKUP")
+    ^
+/home/orso/creature_gh/anchonkiboy.boi.mojo:22:5: error: expressions are not allowed at global scope; move this into a function body
+    db = []
+    ^
+/home/orso/creature_gh/anchonkiboy.boi.mojo:23:5: error: expressions are not allowed at global scope; move this into a function body
+    needsinit=True
+    ^
+/home/orso/creature_gh/anchonkiboy.boi.mojo:268:1: error: expressions are not allowed at global scope; move this into a function body
+'''def maxpower(exclude=None, reverse=False, pastpool=None):
+^
+/home/orso/creature_gh/anchonkiboy.boi.mojo:284:1: error: expressions are not allowed at global scope; move this into a function body
+'''def maxpower(exclude=[],reverse=False):
+^
+/home/orso/creature_gh/anchonkiboy.boi.mojo:309:1: error: expressions are not allowed at global scope; move this into a function body
+'''def transform(x,y):
+^
+/home/orso/creature_gh/anchonkiboy.boi.mojo:323:1: error: expressions are not allowed at global scope; move this into a function body
+'''def transform(x, y):
+^
+/home/orso/creature_gh/anchonkiboy.boi.mojo:330:1: error: expressions are not allowed at global scope; move this into a function body
+'''def transform(x, y):
+^
+/home/orso/creature_gh/anchonkiboy.boi.mojo:333:1: error: expressions are not allowed at global scope; move this into a function body
+'''def faxtpower(exclude=None, reverse=False):
+^
+/home/orso/creature_gh/anchonkiboy.boi.mojo:356:1: error: expressions are not allowed at global scope; move this into a function body
+'''def faxtpower(exclude=None, reverse=False):
+^
+/home/orso/creature_gh/anchonkiboy.boi.mojo:376:1: error: expressions are not allowed at global scope; move this into a function body
+'''def faxtpower(exclude=None, reverse=False):
+^
+/home/orso/creature_gh/anchonkiboy.boi.mojo:445:1: error: expressions are not allowed at global scope; move this into a function body
+'''def maxpower(exclude=None, reverse=False):
+^
+/home/orso/creature_gh/anchonkiboy.boi.mojo:478:1: error: expressions are not allowed at global scope; move this into a function body
+'''def top_broken(x,reverse=False):
+^
+/home/orso/creature_gh/anchonkiboy.boi.mojo:3:8: warning: Implicit standard library imports are deprecated and will be removed in a future release; fully qualify with 'std.' instead
+import random
+       ^
+       std.
+/home/orso/creature_gh/anchonkiboy.boi.mojo:4:8: warning: Implicit standard library imports are deprecated and will be removed in a future release; fully qualify with 'std.' instead
+import os
+       ^
+       std.
+/home/orso/creature_gh/anchonkiboy.boi.mojo:5:8: error: unable to locate module 'shutil'
+import shutil
+       ^
+/home/orso/creature_gh/anchonkiboy.boi.mojo:6:8: error: unable to locate module 'datetime'
+import datetime
+       ^
+/home/orso/creature_gh/anchonkiboy.boi.mojo:14:13: error: cannot call function that may raise in a context that cannot raise
+    if input("Legacy get_db call detected! [T]hrow error or [P]ass").lower() == "t":
+       ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/orso/creature_gh/anchonkiboy.boi.mojo:14:13: note: try surrounding the call in a 'try' block
+    if input("Legacy get_db call detected! [T]hrow error or [P]ass").lower() == "t":
+            ^
+/home/orso/creature_gh/anchonkiboy.boi.mojo:13:5: note: or mark surrounding function as 'raises'
+def get_db():
+    ^
+/home/orso/creature_gh/anchonkiboy.boi.mojo:24:10: error: argument type must be specified
+def save(file):
+         ^~~~
+/home/orso/creature_gh/anchonkiboy.boi.mojo:29:10: error: argument type must be specified
+def nice(x, show_id=None):
+         ^
+/home/orso/creature_gh/anchonkiboy.boi.mojo:29:13: error: argument type must be specified
+def nice(x, show_id=None):
+            ^~~~~~~
+/home/orso/creature_gh/anchonkiboy.boi.mojo:40:22: error: expected argument name
+def calctot(team, out="fp", chaos=0.2):
+                     ^
+/home/orso/creature_gh/anchonkiboy.boi.mojo:71:12: error: argument type must be specified
+def bonusz(z, w):
+           ^
+/home/orso/creature_gh/anchonkiboy.boi.mojo:71:15: error: argument type must be specified
+def bonusz(z, w):
+              ^
+/home/orso/creature_gh/anchonkiboy.boi.mojo:77:12: error: argument type must be specified
+def battle(a, b, randomdebug: list):
+           ^
+/home/orso/creature_gh/anchonkiboy.boi.mojo:77:15: error: argument type must be specified
+def battle(a, b, randomdebug: list):
+              ^
+/home/orso/creature_gh/anchonkiboy.boi.mojo:77:31: error: use of unknown declaration 'list'
+def battle(a, b, randomdebug: list):
+                              ^~~~
+/home/orso/creature_gh/anchonkiboy.boi.mojo:112:17: error: argument type must be specified
+def main_battle(ids_a=None,ids_b=None):
+                ^~~~~
+/home/orso/creature_gh/anchonkiboy.boi.mojo:112:28: error: argument type must be specified
+def main_battle(ids_a=None,ids_b=None):
+                           ^~~~~
+/home/orso/creature_gh/anchonkiboy.boi.mojo:153:21: error: argument type must be specified
+def is_power_of_two(n):
+                    ^
+/home/orso/creature_gh/anchonkiboy.boi.mojo:156:13: error: argument type must be specified
+def pair_up(ids):
+            ^~~
+/home/orso/creature_gh/anchonkiboy.boi.mojo:159:15: error: argument type must be specified
+def run_round(brackets, db):
+              ^~~~~~~~
+/home/orso/creature_gh/anchonkiboy.boi.mojo:159:25: error: argument type must be specified
+def run_round(brackets, db):
+                        ^~
+/home/orso/creature_gh/anchonkiboy.boi.mojo:169:12: error: expected ')' in call argument list
+    print(f"DB loaded with {len(db)} monsters.")
+           ^
+/home/orso/creature_gh/anchonkiboy.boi.mojo:193:12: error: expected ')' in call argument list
+    print(f"DB loaded with {len(db)} monsters.")
+           ^
+/home/orso/creature_gh/anchonkiboy.boi.mojo:226:12: error: expected ')' in call argument list
+    print(f"{len(db)} found.")
+           ^
+/home/orso/creature_gh/anchonkiboy.boi.mojo:294:14: error: argument type must be specified
+def maxpower(exclude=None, reverse=False):
+             ^~~~~~~
+/home/orso/creature_gh/anchonkiboy.boi.mojo:294:28: error: argument type must be specified
+def maxpower(exclude=None, reverse=False):
+                           ^~~~~~~
+/home/orso/creature_gh/anchonkiboy.boi.mojo:402:15: error: argument type must be specified
+def faxtpower(exclude=None, reverse=False):
+              ^~~~~~~
+/home/orso/creature_gh/anchonkiboy.boi.mojo:402:29: error: argument type must be specified
+def faxtpower(exclude=None, reverse=False):
+                            ^~~~~~~
+/home/orso/creature_gh/anchonkiboy.boi.mojo:462:16: error: argument type must be specified
+def top_legacy(x, reverse=False):
+               ^
+/home/orso/creature_gh/anchonkiboy.boi.mojo:462:19: error: argument type must be specified
+def top_legacy(x, reverse=False):
+                  ^~~~~~~
+/home/orso/creature_gh/anchonkiboy.boi.mojo:495:9: error: argument type must be specified
+def top(x,reverse=False):
+        ^
+/home/orso/creature_gh/anchonkiboy.boi.mojo:495:11: error: argument type must be specified
+def top(x,reverse=False):
+          ^~~~~~~
+/home/orso/creature_gh/anchonkiboy.boi.mojo:515:16: error: argument type must be specified
+def top_maxpow(x,reverse=False):
+               ^
+/home/orso/creature_gh/anchonkiboy.boi.mojo:515:18: error: argument type must be specified
+def top_maxpow(x,reverse=False):
+                 ^~~~~~~
+/home/orso/creature_gh/anchonkiboy.boi.mojo:535:13: error: argument type must be specified
+def dbstats(numtop=5):
+            ^~~~~~
+/home/orso/creature_gh/anchonkiboy.boi.mojo:557:38: error: expected ')' in call argument list
+        shutil.copy("monsterdb.py", f"monsterdb_backup.py_{ts}")
+                                     ^
+/home/orso/creature_gh/anchonkiboy.boi.mojo:690:16: error: use of unknown declaration 'db'
+        if len(db) > 10000:
+               ^~
+/home/orso/creature_gh/anchonkiboy.boi.mojo:224:24: error: package 'random' does not contain 'choice'
+    from random import choice as coits
+                       ^
+mojo: error: failed to parse the provided Mojo source module
