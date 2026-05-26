@@ -1,0 +1,2 @@
+from zchonk import upgrade_monsters
+upgrade_monsters(iamasecretargumentshutup=True)
